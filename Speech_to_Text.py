@@ -1,13 +1,13 @@
-import speech_recognition as sr
+from speech_recognition import Microphone as Mic
+from speech_recognition import Recognizer as r
 import pyaudio
-r = sr.Recognizer()
 
-with sr.Microphone() as source:
+with Mic():
     print("say something")
-    audio=r.listen(source)
+    audio=r.listen(Mic)
     print("time over thanks")
 
 try:
     print("Text : " + r.recognize_google(audio))
 except:
-    print("Sorry i couldn't hear")
+    print("Sorry i couldn't hear you")
